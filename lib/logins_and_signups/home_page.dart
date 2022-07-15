@@ -60,23 +60,23 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 5),
-                  child: GestureDetector(
-                    onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => const ForgotPassWordPage()),
-                      // );
-                    },
-                    child: const Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                          color: Colors.green, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   margin: const EdgeInsets.only(top: 5),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       // Navigator.push(
+                //       //   context,
+                //       //   MaterialPageRoute(
+                //       //       builder: (context) => const ForgotPassWordPage()),
+                //       // );
+                //     },
+                //     child: const Text(
+                //       "Forgot Password?",
+                //       style: TextStyle(
+                //           color: Colors.green, fontWeight: FontWeight.bold),
+                //     ),
+                //   ),
+                // ),
                 Container(
                   margin: const EdgeInsets.only(top: 30, bottom: 20),
                   width: 200,
