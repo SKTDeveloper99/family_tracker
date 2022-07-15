@@ -82,3 +82,56 @@
 //                   // );
 //                 //}
 //
+
+// List listExport =[];
+// StreamBuilder(
+//   stream: FirebaseDatabase.instance.ref().child("friends/$uid").orderByKey().onValue,
+//   builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+//     if (snapshot.hasData) {
+//       final tempList = Map<String, dynamic>.from(
+//           (snapshot.data! as DatabaseEvent).snapshot.value as Map);
+//       listExport.addAll(tempList.values.map((value) {
+//         return listExport;
+//       }));
+//       friendsList.addAll(listExport);
+//       setState(() {
+//         friendsList;
+//       });
+//     } else if (snapshot.connectionState == ConnectionState.waiting) {
+//       return const Center(
+//           child: CircularProgressIndicator());
+//     } else if (snapshot.hasError) {
+//       return Center(child: Text(snapshot.error.toString()));
+//     }
+//     return const ListTile();
+//   },
+// );
+
+// body: Column(
+//   children:[
+//     //Text("${keys[1]}"),
+//     Text("${keys.length}"),
+//     //Text("${usernames[0]}"),
+//     //Text("${usernames[1]}"),
+//     //Text("${keys[0]}"),
+//     Expanded(
+//       child: ListView(
+//
+//
+//     ),
+//     )
+//   ],
+// ),
+
+// allUsers.forEach((key, value) {
+//   final nextPerson = Map<String,dynamic>.from(value);
+//   if(nextPerson['uid'] == "oiRilP6NeDUweqvJseW3ka5Ryc32" ) {
+//      print("Yes");
+//      print
+//   }
+//   final orderTile = ListTile(
+//       leading: Icon(Icons.local_cafe),
+//       title: Text(nextPerson['quote']),
+//       subtitle: Text(nextPerson['author']));
+//   tilesList.add(orderTile);
+// });

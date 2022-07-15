@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                               image:  DecorationImage(
-                                image: NetworkImage(profilePic),
+                                image: NetworkImage("${profilePic}"),
                               fit: BoxFit.fill,
                               ),
                             ),
