@@ -57,8 +57,8 @@ class _AddFriendPageState extends State<AddFriendPage> {
                       //print(friendsUID);
                       friendsUID1 = friendsUID ;
                     });
-                    DatabaseReference ListPush= FirebaseDatabase.instance.ref().child("friends/$uid");
-                    ListPush.update({
+                    DatabaseReference listPush= FirebaseDatabase.instance.ref().child("friends/$uid");
+                    listPush.update({
                       friendsUID1.toString(): "true",
                     });
                   });

@@ -1,8 +1,8 @@
 import 'package:family_tracker/functionaries/add_friend.dart';
 import 'package:family_tracker/functionaries/change_name.dart';
+import 'package:family_tracker/functionaries/gps_functions.dart';
 import 'package:family_tracker/functionaries/test_friends2.dart';
 import 'package:family_tracker/main_pages/map_page.dart';
-import 'package:family_tracker/test_show_friends.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                               image:  DecorationImage(
-                                image: NetworkImage("${profilePic}"),
+                                image: NetworkImage(profilePic),
                               fit: BoxFit.fill,
                               ),
                             ),
@@ -134,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 child: FloatingActionButton(onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const MapPage()),
+                                    MaterialPageRoute(builder: (context) => const TestMapLocation()),
                                   );
                                 },
                                 heroTag: "btn1",
@@ -162,7 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 child: FloatingActionButton(onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => ShowFriends()),
+                                    MaterialPageRoute(builder: (context) => const ShowFriends()),
                                   );
                                 },
                                   heroTag: "btn3",
