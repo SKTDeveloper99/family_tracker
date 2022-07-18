@@ -1,8 +1,7 @@
 import 'package:family_tracker/functionaries/add_friend.dart';
 import 'package:family_tracker/functionaries/change_name.dart';
 import 'package:family_tracker/functionaries/gps_functions.dart';
-import 'package:family_tracker/functionaries/test_friends2.dart';
-import 'package:family_tracker/main_pages/map_page.dart';
+import 'package:family_tracker/functionaries/map_with_friends.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';

@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:location/location.dart';
@@ -50,6 +52,7 @@ class _GetLocationWidgetState extends State<GetLocationWidget> {
             style: Theme.of(context).textTheme.bodyText1,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ElevatedButton(
                 onPressed: _getLocation,
@@ -58,6 +61,19 @@ class _GetLocationWidgetState extends State<GetLocationWidget> {
                   color: Colors.white,
                 )
                     : const Text('Get'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  FirebaseDatabase.instance.ref().child("users/${FirebaseAuth.instance.currentUser!.uid}").update({
+                    "latitude": _location?.latitude?.toDouble(),
+                    "longitude": _location?.longitude?.toDouble()
+                  });
+                },
+                child: _loading
+                    ? const CircularProgressIndicator(
+                  color: Colors.white,
+                )
+                    : const Text('Push'),
               )
             ],
           ),

@@ -97,9 +97,13 @@ class SignUpPage extends StatelessWidget {
                             'location': randomUsername(),
                             'description': randomDescription(),
                             'profilePic': randomRepPic(),
-                            'latitude':"77.0047",
-                            'longitude':"38.8887",
+                            'latitude':27.1144,
+                            'longitude':38.8887,
                           };
+                          FirebaseDatabase.instance.ref().child("friends/${authResult.user!.uid}").set({
+                            "N66Wx0S1bjk9D39V4lH": "true",
+                            authResult.user!.uid: "true",
+                          });
 
                           FirebaseDatabase.instance.ref().child("users/${authResult.user!.uid}")
                               .set(userProfile)

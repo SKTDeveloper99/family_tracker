@@ -9,8 +9,8 @@ class TestMapLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Map Settings"),
-        backgroundColor: Color.fromRGBO(0, 0, 128, 1),
+        title: const Text("Map Settings"),
+        backgroundColor: const Color.fromRGBO(0, 0, 128, 1),
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -34,15 +33,38 @@ class _ShowFriendsState extends State<ShowFriends> {
       });
   }
 
+  void getYourMarker() async {
+    ref1.child("${FirebaseAuth.instance.currentUser?.uid}").onValue.listen((event) {
+      final yourInfo = Map<String,dynamic>.from(event.snapshot.value as Map);
+      print(yourInfo['uid']);
+      markers.add(
+          Marker(
+            markerId: MarkerId(yourInfo['uid'] as String),//document['placeID'] as String
+            icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
+            position: LatLng(
+              yourInfo['latitude'],
+              yourInfo['longitude'],
+            ),
+            infoWindow: InfoWindow(
+              title: yourInfo['username'] as String, //document['name'] as String
+              snippet: yourInfo['description'] as String, //document['address'] as String
+            ),
+          ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     getKeys();
+    getYourMarker();
+    print(markers);
     //getFriendsInfo();
     return Scaffold(
       appBar: AppBar(
           title: Text(""),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Colors.transparent,
@@ -101,9 +123,11 @@ class _ShowFriendsState extends State<ShowFriends> {
                  ),
                ],
              );
+           } else {
+             return const Center(
+               child: CircularProgressIndicator(),
+             );
            }
-           return Column(
-           );
           }),
     );
   }
